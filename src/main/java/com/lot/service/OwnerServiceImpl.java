@@ -11,6 +11,12 @@ public class OwnerServiceImpl implements OwnerService {
 
 
     private OwnerRepository ownerRepository;
+
+    @Override
+    public Owner findById(Long id) {
+        return ownerRepository.findById(id).orElseGet(null);
+    }
+
     @Override
     public Owner save(Owner owner) {
         return ownerRepository.save(owner);

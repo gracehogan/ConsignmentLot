@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.util.List;
+
 @SpringBootApplication
 public class ConsignmentLotApplication {
 
@@ -46,6 +48,13 @@ public class ConsignmentLotApplication {
 		System.out.println(v2.getId());
 		System.out.println(v2.getMake());
 
+		List<Vehicle> vehicles = vehicleService.findAllVehicles();
+		for(Vehicle vehicle: vehicles) {
+			System.out.println(vehicle.getMake());
+			System.out.println(vehicle.getOwner().getName());
+		}
+
+		System.out.println(ownerService.findById(1L).getVehicles());
 
 
 	}
